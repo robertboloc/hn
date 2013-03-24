@@ -16,6 +16,13 @@ And then execute:
 
     $ bundle
 
+## Issues
+
+Recently, Hacker News has started enforcing HTTPS connections. If you're having
+problems accessing Hacker News via this gem, read [these
+instructions](http://railsapps.github.com/openssl-certificate-verify-failed.html)
+for specific fixes.
+
 ## Usage
 
     require 'hn'
@@ -42,3 +49,4 @@ And then execute:
 Thanks following wonderful people for contributing to this project:
 
 [@bencevans](https://github.com/bencevans)
+[@imkmf](https://github.com/imkmf)

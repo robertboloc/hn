@@ -19,7 +19,7 @@ module HackerNews
     private
 
     def site_name
-      'http://news.ycombinator.com/'
+      'https://news.ycombinator.com/'
     end
 
     def parse_entries(url)
@@ -38,7 +38,7 @@ module HackerNews
     def parse_entry(trs, i)
       Entry.new do |entry|
         entry.link = trs[i*3].at_css('td.title a')['href']
-        entry.link = site_name + entry.link unless entry.link =~ /^http/
+        entry.link = site_name + entry.link unless entry.link =~ /^https/
 
         entry.title = trs[i*3].at_css('td.title a').text
 
@@ -52,7 +52,7 @@ module HackerNews
         begin
           entry.id = trs[i*3+1].css('td.subtext a')[1]['href'].match(/\d+/)[0].to_i
         rescue
-          entry.id = entry.link.match(/^http:\/\/news\.ycombinator\.com\/item\?id=(\d+)$/)[1].to_i
+          entry.id = entry.link.match(/^https:\/\/news\.ycombinator\.com\/item\?id=(\d+)$/)[1].to_i
         end
       end
     rescue

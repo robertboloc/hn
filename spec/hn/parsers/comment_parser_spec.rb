@@ -1,6 +1,6 @@
 require "spec_helper"
 
-FakeWeb.register_uri :get, 'http://news.ycombinator.com/item?id=4084603', :body => fixture('comments.html')
+FakeWeb.register_uri :get, 'https://news.ycombinator.com/item?id=4084603', :body => fixture('comments.html')
 
 module HackerNews
   describe CommentParser do
