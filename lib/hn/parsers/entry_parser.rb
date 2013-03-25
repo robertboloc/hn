@@ -39,7 +39,7 @@ module HackerNews
     def parse_entry(trs, i)
       Entry.new do |entry|
         entry.link = trs[i*3].at_css('td.title a')['href']
-        entry.link = URI.join(site_name, entry.link)
+        entry.link = URI.join(site_name, entry.link).to_s
 
         entry.title = trs[i*3].at_css('td.title a').text
 
