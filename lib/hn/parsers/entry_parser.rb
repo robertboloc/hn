@@ -1,5 +1,6 @@
 require "nokogiri"
 require "open-uri"
+require "uri"
 require "chronic"
 
 module HackerNews
@@ -38,7 +39,7 @@ module HackerNews
     def parse_entry(trs, i)
       Entry.new do |entry|
         entry.link = trs[i*3].at_css('td.title a')['href']
-        entry.link = site_name + entry.link unless entry.link =~ /^https/
+        entry.link = URI.join(site_name, entry.link)
 
         entry.title = trs[i*3].at_css('td.title a').text
 
