@@ -37,7 +37,7 @@ module HackerNews
         entries.each do |entry|
           entry.id.should > 4000000
           entry.username.should =~ /\w+/
-          entry.link.should =~ /^https/
+          entry.link.should =~ /^http/
 
           if entry.site.nil? # ASK HN
             entry.id.should == entry.link.match(/^https:\/\/news\.ycombinator\.com\/item\?id=(\d+)$/)[1].to_i
@@ -60,7 +60,7 @@ module HackerNews
         entries.each do |entry|
           entry.id.should > 4000000
           entry.username.should =~ /\w+/
-          entry.link.should =~ /^https/
+          entry.link.should =~ /^http/
 
           if entry.site.nil? # ASK HN
             entry.id.should == entry.link.match(/^https:\/\/news\.ycombinator\.com\/item\?id=(\d+)$/)[1].to_i
