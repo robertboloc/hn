@@ -18,7 +18,7 @@ module HackerNews
         entries.each do |entry|
           entry.id.should > 4000000
           entry.username.should =~ /\w+/
-          entry.link.should =~ /^https/
+          entry.link.should =~ /^http/
           entry.title.should_not be_empty
           entry.num_comments.should >= 0
           entry.site.should_not =~ /^https/
