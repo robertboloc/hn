@@ -5,7 +5,7 @@ require "chronic"
 module HackerNews
   class CommentParser
     def parse(entry_id)
-      doc = Nokogiri::HTML(open("https://news.ycombinator.com/item?id=#{entry_id}"))
+      doc = Nokogiri::HTML(open("https://news.ycombinator.com/item?id=#{entry_id}"), nil, 'utf-8')
       comment_data = doc.css('td.default').map { |td| extract_comment_from_td(td) }
       comments = []
 

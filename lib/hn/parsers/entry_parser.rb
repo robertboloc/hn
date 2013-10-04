@@ -25,7 +25,7 @@ module HackerNews
 
     def parse_entries(url)
       # doc = Nokogiri::HTML(open('spec/fixtures/home.html'))
-      doc = Nokogiri::HTML(open(url))
+      doc = Nokogiri::HTML(open(url), nil, 'utf-8')
       tbody = doc.at_css('td.title').parent.parent
       trs = tbody.css('tr').to_a
 
